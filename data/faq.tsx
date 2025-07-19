@@ -1,30 +1,52 @@
+import { Box } from '@chakra-ui/react'
+
 import * as React from 'react'
 
 const faq = {
-  title: 'Frequently asked questions',
-  // description: '',
+  title: 'Frequently Asked Questions',
   items: [
     {
-      q: 'How many products can I use Saas UI Pro for?',
+      q: 'What is the main purpose of this platform?',
       a: (
         <>
-          The single license can be used for one commercial application or SaaS
-          product and unlimited internal tools. You can buy as many licenses as
-          you need. <br /> The unlimited license does not have any restrictions.
+          This platform enables users to deploy honeypots and deception
+          environments in the cloud. It helps detect, analyze, and respond to
+          cyber threats by attracting attackers to decoy systems and collecting
+          real-time threat intelligence.
         </>
       ),
     },
     {
-      q: 'Can I use Saas UI Pro for client work?',
-      a: "Yes, that's totally up to you, as long as it fits the license you purchase.",
+      q: 'Which cloud providers are supported?',
+      a: (
+        <>
+          The platform supports deployment on all major cloud providers
+          including
+          <strong> AWS, GCP, and Azure</strong>. It uses Terraform or Pulumi to
+          provision resources via Infrastructure-as-Code.
+        </>
+      ),
     },
     {
-      q: 'Can I use Saas UI Pro for Open Source projects?',
-      a: 'No currently not. A large part of Saas UI is already released under MIT license. We try to give back to the community as much as possible.',
+      q: 'What kind of threats can this platform detect?',
+      a: (
+        <>
+          It detects threats like{' '}
+          <strong>unauthorized access, port scanning, malware injection</strong>
+          , and suspicious lateral movement. Real-time alerts and dashboards
+          help track these incidents efficiently.
+        </>
+      ),
     },
     {
-      q: 'Does Saas UI include Figma, Sketch or other design files?',
-      a: 'No, Saas UI does not include any design assets. Maintaining design resources costs a lot of extra effort. We believe small teams can move much faster by designing directly in code, with help of Storybooks.',
+      q: 'Does the platform support team collaboration?',
+      a: (
+        <>
+          Yes. The platform is designed for security teams, allowing{' '}
+          <strong>user roles, shared dashboards,</strong>
+          and collaborative investigation of threat data across cloud accounts.
+        </>
+      ),
     },
   ],
 }

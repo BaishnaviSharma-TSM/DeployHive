@@ -6,12 +6,13 @@ import {
   GridItem,
   GridItemProps,
   Heading,
+  Image,
+  Text,
   useTheme,
 } from '@chakra-ui/react'
 import { transparentize } from '@chakra-ui/theme-tools'
 
 import { Section, SectionProps } from '#components/section'
-import { Testimonial, TestimonialProps } from '#components/testimonials'
 
 export interface HighlightBoxProps
   extends GridItemProps,
@@ -43,23 +44,29 @@ export const HighlightsItem: React.FC<HighlightBoxProps> = (props) => {
   )
 }
 
-export const HighlightsTestimonialItem: React.FC<
-  HighlightBoxProps & TestimonialProps & { gradient: [string, string] }
-> = (props) => {
-  const {
-    name,
-    description,
-    avatar,
-    children,
-    gradient = ['primary.500', 'secondary.500'],
-    ...rest
-  } = props
+interface AvatarOnlyProps extends HighlightBoxProps {
+  avatar: string
+  name: string
+  imageSize?: string // e.g., '100px' or '8rem'
+  gradient?: [string, string]
+}
+
+export const HighlightsTestimonialItem: React.FC<AvatarOnlyProps> = ({
+  name,
+  avatar,
+  imageSize = '200px',
+  gradient = ['primary.500', 'secondary.500'],
+  ...rest
+}) => {
   const theme = useTheme()
+
   return (
     <HighlightsItem
       justifyContent="center"
-      _dark={{ borderColor: 'whiteAlpha.300' }}
+      alignItems="center"
+      textAlign="center"
       p="4"
+      position="relative"
       {...rest}
     >
       <Box
@@ -74,22 +81,17 @@ export const HighlightsTestimonialItem: React.FC<
         zIndex="0"
         _dark={{ opacity: 0.5, filter: 'blur(50px)' }}
       />
-      <Testimonial
-        name={name}
-        description={
-          <Box as="span" color="whiteAlpha.700">
-            {description}
-          </Box>
-        }
-        avatar={avatar}
-        border="0"
-        bg="transparent"
-        boxShadow="none"
-        color="white"
-        position="relative"
-      >
-        {children}
-      </Testimonial>
+      <Image
+        src={avatar}
+        alt={name}
+        borderRadius="full"
+        boxSize={imageSize}
+        objectFit="cover"
+        zIndex="1"
+      />
+      <Text fontSize="xl" fontWeight="bold" mt="4" color="white" zIndex="1">
+        {name}
+      </Text>
     </HighlightsItem>
   )
 }

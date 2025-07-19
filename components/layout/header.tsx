@@ -33,6 +33,7 @@ export const Header = (props: HeaderProps) => {
       top="0"
       w="full"
       position="fixed"
+      h='72px'
       backdropFilter="blur(5px)"
       zIndex="sticky"
       borderColor="whiteAlpha.100"

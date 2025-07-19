@@ -1,42 +1,43 @@
 export default {
-  title: 'Loved by tech people',
+  title: 'How It Works',
   items: [
     {
-      name: 'Eelco Wiersma',
-      description: 'Founder Saas UI',
-      avatar:
-        'https://pbs.twimg.com/profile_images/1470742164024008706/k-eXHtu0_normal.jpg',
-      children: (
-        <>
-          “With SaaS UI I am able to produce high quality dashboard apps and
-          internal tools without a lot of design skills. The ROI really is
-          amazing.”
-        </>
-      ),
+      step: 'STEP 1',
+      name: 'Choose Configuration',
+      description:
+        'Pick your desired VM count, machine type, cloud region, and honeypot type (e.g., SSH, HTTP, or custom).',
+      children: [
+        'Flexible virtual machine selection',
+        'Regional cloud support',
+        'Custom honeypot configurations',
+        // 'Intuitive setup wizard',
+      ],
     },
     {
-      name: 'Caroline Yahaya',
-      description: 'Fullstack Developer',
-      avatar: '/static/images/avatar2.jpg',
-      children: (
-        <>
-          “Saas UI allows me to build beautiful and functional UI super fast.
-          The components are very well thought out and the Next.js starter kit
-          saved me at least 100 hours of work.”
-        </>
-      ),
+      step: 'STEP 2',
+      name: 'Deploy to the Cloud',
+      description:
+      `Click "Deploy".
+      Your environment spins up automatically.
+      Runs on your preferred cloud platform.`,
+      children: [
+        'One-click deployment',
+        'GCP, AWS, Azure support',
+        'Automated provisioning',
+      ],
     },
     {
-      name: 'Alberto Vazquez',
-      description: 'Frontend Engineer',
-      avatar: '/static/images/avatar3.jpg',
-      children: (
-        <>
-          “Saas UI gave us a perfect starting point for our project, having the
-          storybooks already set up with beautifully crafted components and
-          fully mocked pages was a treat.”
-        </>
-      ),
+      step: 'STEP 3',
+      name: 'Monitor & Analyze',
+      description:
+       `Access a centralized dashboard.
+      Track attack data, system health, and uptime.
+       Monitor overall performance in real time.`,
+      children: [
+        'Real-time attack insights',
+        'Attack tracking & log management',
+        'Visual dashboard for system metrics',
+      ],
     },
   ],
 }

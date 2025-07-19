@@ -17,18 +17,22 @@ import {
   useClipboard,
 } from '@chakra-ui/react'
 import { Br, Link } from '@saas-ui/react'
+import Lottie from 'lottie-react'
 import type { Metadata, NextPage } from 'next'
 import Image from 'next/image'
 import {
+  FiActivity,
   FiArrowRight,
   FiBox,
   FiCheck,
+  FiCloud,
   FiCode,
   FiCopy,
   FiFlag,
   FiGrid,
   FiLock,
   FiSearch,
+  FiShield,
   FiSliders,
   FiSmile,
   FiTerminal,
@@ -50,7 +54,7 @@ import {
   HighlightsItem,
   HighlightsTestimonialItem,
 } from '#components/highlights'
-import { ChakraLogo, NextjsLogo } from '#components/logos'
+// import { ChakraLogo, NextjsLogo } from '#components/logos'
 import { FallInPlace } from '#components/motion/fall-in-place'
 import { Pricing } from '#components/pricing/pricing'
 import { Testimonial, Testimonials } from '#components/testimonials'
@@ -58,6 +62,8 @@ import { Em } from '#components/typography'
 import faq from '#data/faq'
 import pricing from '#data/pricing'
 import testimonials from '#data/testimonials'
+
+import landingPageImg from '../../public/static/images/ladingPageImage.json'
 
 export const meta: Metadata = {
   title: 'Saas UI Landingspage',
@@ -86,7 +92,7 @@ const HeroSection: React.FC = () => {
   return (
     <Box position="relative" overflow="hidden">
       <BackgroundGradient height="100%" zIndex="-1" />
-      <Container maxW="container.xl" pt={{ base: 40, lg: 60 }} pb="40">
+      <Container maxW="container.xl" pt={{ base: 40, lg: 40 }} pb="20">
         <Stack direction={{ base: 'column', lg: 'row' }} alignItems="center">
           <Hero
             id="home"
@@ -94,28 +100,30 @@ const HeroSection: React.FC = () => {
             px="0"
             title={
               <FallInPlace>
-                Build beautiful
-                <Br /> software faster
+                Now Deploy VMs & Honeypots
+                <Br /> in just One Click
               </FallInPlace>
             }
             description={
               <FallInPlace delay={0.4} fontWeight="medium">
-                Saas UI is a <Em>React component library</Em>
-                <Br /> that doesn&apos;t get in your way and helps you <Br />{' '}
-                build intuitive SaaS products with speed.
+                Easily deploy virtual machines and honeypots on GCP, AWS, or
+                Azure. Select VM types, honeypot quantity, and preferred cloud
+                region, we automate everything else. Instantly gain real-time
+                monitoring, system logs, and complete visibility into your cloud
+                infrastructure.
               </FallInPlace>
             }
           >
             <FallInPlace delay={0.8}>
-              <HStack pt="4" pb="12" spacing="8">
-                <NextjsLogo height="28px" /> <ChakraLogo height="20px" />
-              </HStack>
-
-              <ButtonGroup spacing={4} alignItems="center">
-                <ButtonLink colorScheme="primary" size="lg" href="/signup">
-                  Sign Up
-                </ButtonLink>
+              <ButtonGroup spacing={4} alignItems="center" py="20px">
                 <ButtonLink
+                  colorScheme="primary"
+                  size="lg"
+                  href="https://form.typeform.com/to/Db1rF0uQ"
+                >
+                  Join Us
+                </ButtonLink>
+                {/* <ButtonLink
                   size="lg"
                   href="https://demo.saas-ui.dev"
                   variant="outline"
@@ -132,8 +140,8 @@ const HeroSection: React.FC = () => {
                     />
                   }
                 >
-                  View demo
-                </ButtonLink>
+                  Get Started
+                </ButtonLink> */}
               </ButtonGroup>
             </FallInPlace>
           </Hero>
@@ -147,16 +155,9 @@ const HeroSection: React.FC = () => {
             margin="0 auto"
           >
             <FallInPlace delay={1}>
-              <Box overflow="hidden" height="100%">
-                <Image
-                  src="/static/screenshots/list.png"
-                  width={1200}
-                  height={762}
-                  alt="Screenshot of a ListPage in Saas UI Pro"
-                  quality="75"
-                  priority
-                />
-              </Box>
+              <div style={{ width: 500, height: 500 }}>
+                <Lottie animationData={landingPageImg} loop={true} />
+              </div>
             </FallInPlace>
           </Box>
         </Stack>
@@ -170,33 +171,33 @@ const HeroSection: React.FC = () => {
         pt="20"
         features={[
           {
-            title: 'Accessible',
+            title: 'Simplified Cloud Configuration',
             icon: FiSmile,
-            description: 'All components strictly follow WAI-ARIA standards.',
+            description: `Deploy VMs and honeypots in clicks with an intuitive setup select type, region, and behavior for instant monitoring.`,
             iconPosition: 'left',
             delay: 0.6,
           },
           {
-            title: 'Themable',
+            title: 'One-Click Cloud Deployment',
             icon: FiSliders,
             description:
-              'Fully customize all components to your brand with theme support and style props.',
+              'With a single click, launch your secure honeypot environment across Google Cloud Platform , Amazon Web Services, and Microsoft Azure.',
             iconPosition: 'left',
             delay: 0.8,
           },
           {
-            title: 'Composable',
+            title: 'Real-Time Monitoring',
             icon: FiGrid,
             description:
-              'Compose components to fit your needs and mix them together to create new ones.',
+              'Get centralized visibility with real-time metrics and alerts on resource usage, network activity, and honeypot interactions.',
             iconPosition: 'left',
             delay: 1,
           },
           {
-            title: 'Productive',
+            title: 'Built for Security Teams',
             icon: FiThumbsUp,
             description:
-              'Designed to reduce boilerplate and fully typed, build your product at speed.',
+              'Use honeypots to detect threats, analyze attacker behavior, and stay ahead of cyber risks all without touching the command line.',
             iconPosition: 'left',
             delay: 1.1,
           },
@@ -212,7 +213,7 @@ const HighlightsSection = () => {
 
   return (
     <Highlights>
-      <HighlightsItem colSpan={[1, null, 2]} title="Core components">
+      {/* <HighlightsItem colSpan={[1, null, 2]} title="Core components">
         <VStack alignItems="flex-start" spacing="8">
           <Text color="muted" fontSize="xl">
             Get started for free with <Em>30+ open source components</Em>.
@@ -220,7 +221,7 @@ const HighlightsSection = () => {
             Fully functional forms with React Hook Form. Data tables with React
             Table.
           </Text>
-
+ 
           <Flex
             rounded="full"
             borderWidth="1px"
@@ -251,51 +252,119 @@ const HighlightsSection = () => {
             />
           </Flex>
         </VStack>
-      </HighlightsItem>
-      <HighlightsItem title="Solid foundations">
+      </HighlightsItem> */}
+      {/* <HighlightsItem title="Solid foundations">
         <Text color="muted" fontSize="lg">
           We don&apos;t like to re-invent the wheel, neither should you. We
           selected the most productive and established tools in the scene and
           build Saas UI on top of it.
         </Text>
-      </HighlightsItem>
+      </HighlightsItem> */}
       <HighlightsTestimonialItem
-        name="Renata Alink"
-        description="Founder"
-        avatar="/static/images/avatar.jpg"
+        name="Google Cloud"
+        avatar="/static/images/GCP.webp"
+        size={'sm'}
         gradient={['pink.200', 'purple.500']}
-      >
-        “Saas UI helped us set up a beautiful modern UI in no time. It saved us
-        hundreds of hours in development time and allowed us to focus on
-        business logic for our specific use-case from the start.”
-      </HighlightsTestimonialItem>
-      <HighlightsItem
-        colSpan={[1, null, 2]}
-        title="Start your next idea two steps ahead"
-      >
+      ></HighlightsTestimonialItem>
+      <HighlightsItem colSpan={[1, null, 2]} title="Google Cloud">
         <Text color="muted" fontSize="lg">
-          We took care of all your basic frontend needs, so you can start
-          building functionality that makes your product unique.
+          Google Cloud Platform (GCP) is a suite of cloud computing services
+          that enables businesses to build, deploy, and scale applications on
+          Google's reliable infrastructure.
         </Text>
         <Wrap mt="8">
           {[
-            'authentication',
-            'navigation',
-            'crud',
-            'settings',
-            'multi-tenancy',
-            'layouts',
-            'billing',
-            'a11y testing',
-            'server-side rendering',
-            'documentation',
-            'onboarding',
-            'storybooks',
-            'theming',
-            'upselling',
-            'unit testing',
-            'feature flags',
-            'responsiveness',
+            'compute',
+            'storage',
+            'networking',
+            'analytics',
+            'ai',
+            'bigquery',
+            'kubernetes',
+            'monitoring',
+            'databases',
+            'devops',
+            'scalability',
+            'reliability',
+            'security',
+            'flexibility',
+            'performance',
+            'efficiency',
+            'automation',
+            'compliance',
+            'speed',
+          ].map((value) => (
+            <Tag
+              key={value}
+              variant="subtle"
+              colorScheme="purple"
+              rounded="full"
+              px="3"
+            >
+              {value}
+            </Tag>
+          ))}
+        </Wrap>
+      </HighlightsItem>
+      <HighlightsTestimonialItem
+        name="Microsoft Azure"
+        avatar="/static/images/azure.png"
+        gradient={['pink.200', 'purple.500']}
+      ></HighlightsTestimonialItem>
+      <HighlightsItem colSpan={[1, null, 2]} title="Microsoft Azure">
+        <Text color="muted" fontSize="lg">
+          Microsoft Azure is a comprehensive cloud platform offering a wide
+          range of services for building, deploying, and managing applications
+          through Microsoft's global network.
+        </Text>
+        <Wrap mt="8">
+          {[
+            'scalability',
+            'integration',
+            'security',
+            'flexibility',
+            'global-reach',
+            'compliance',
+            'hybrid-support',
+            'analytics',
+            'devops',
+            'productivity',
+          ].map((value) => (
+            <Tag
+              key={value}
+              variant="subtle"
+              colorScheme="purple"
+              rounded="full"
+              px="3"
+            >
+              {value}
+            </Tag>
+          ))}
+        </Wrap>
+      </HighlightsItem>
+      <HighlightsTestimonialItem
+        name=" AWS"
+        avatar="/static/images/aws.jpeg"
+        gradient={['pink.200', 'purple.500']}
+      ></HighlightsTestimonialItem>
+      <HighlightsItem colSpan={[1, null, 2]} title=" AWS">
+        <Text color="muted" fontSize="lg">
+          Amazon Web Services (AWS) is a leading cloud platform offering
+          on-demand computing, storage, and a wide array of services to build
+          and scale applications globally.
+        </Text>
+        <Wrap mt="8">
+          {[
+            'scalability',
+            'security',
+            'reliability',
+            'flexibility',
+            'global-infrastructure',
+            'performance',
+            'cost-efficiency',
+            'ecosystem',
+            'innovation',
+            'automation',
           ].map((value) => (
             <Tag
               key={value}
@@ -324,16 +393,19 @@ const FeaturesSection = () => {
           textAlign="left"
           as="p"
         >
-          Not your standard
-          <Br /> dashboard template.
+          Cloud-Native Honeypot Deployment <Br /> & Threat Monitoring Platform
         </Heading>
       }
       description={
         <>
-          Saas UI Pro includes everything you need to build modern frontends.
+          Our platform makes it easy to deploy honeypots and deception
+          environments across AWS, GCP, and Azure.
           <Br />
-          Use it as a template for your next product or foundation for your
-          design system.
+          With a clean interface, users can simulate real attack surfaces,
+          gather real-time threat intel, and respond instantly.
+          <Br />
+          It’s perfect for security researchers, DevSecOps teams, and cloud
+          admins.
         </>
       }
       align="left"
@@ -341,69 +413,69 @@ const FeaturesSection = () => {
       iconSize={4}
       features={[
         {
-          title: '#components.',
-          icon: FiBox,
+          title: 'Easy Cloud Deployment',
+          icon: FiCloud,
           description:
-            'All premium components are available on a private NPM registery, no more copy pasting and always up-to-date.',
+            'Quickly launch honeypots in AWS, Azure, or GCP using a simple, web-based UI powered by Terraform or Pulumi.',
           variant: 'inline',
         },
         {
-          title: 'Starterkits.',
+          title: 'Real-Time Threat Detection',
+          icon: FiActivity,
+          description:
+            'Get real-time alerts for suspicious activity like port scans or unauthorized access with tools like Falco and Wazuh.',
+          variant: 'inline',
+        },
+        {
+          title: 'Centralized Monitoring',
+          icon: FiShield,
+          description:
+            'Use Grafana dashboards to track attacks, system health, and uptime across all cloud honeypots in one place.',
+          variant: 'inline',
+        },
+        {
+          title: 'Automated Incident Response',
           icon: FiLock,
           description:
-            'Example apps in Next.JS, Electron. Including authentication, billing, example pages, everything you need to get started FAST.',
+            'Block IPs or shut down instances automatically when threats are detected, reducing manual intervention.',
           variant: 'inline',
         },
         {
-          title: 'Documentation.',
-          icon: FiSearch,
-          description:
-            'Extensively documented, including storybooks, best practices, use-cases and examples.',
-          variant: 'inline',
-        },
-        {
-          title: 'Onboarding.',
-          icon: FiUserPlus,
-          description:
-            'Add user onboarding flows, like tours, hints and inline documentation without breaking a sweat.',
-          variant: 'inline',
-        },
-        {
-          title: 'Feature flags.',
-          icon: FiFlag,
-          description:
-            "Implement feature toggles for your billing plans with easy to use hooks. Connect Flagsmith, or other remote config services once you're ready.",
-          variant: 'inline',
-        },
-        {
-          title: 'Upselling.',
-          icon: FiTrendingUp,
-          description:
-            '#components and hooks for upgrade flows designed to make upgrading inside your app frictionless.',
-          variant: 'inline',
-        },
-        {
-          title: 'Themes.',
+          title: 'Cloud-Agnostic Architecture',
           icon: FiToggleLeft,
           description:
-            'Includes multiple themes with darkmode support, always have the perfect starting point for your next project.',
+            'Seamlessly integrate with any cloud using secure OAuth or IAM-based credential management.',
           variant: 'inline',
         },
         {
-          title: 'Generators.',
+          title: 'Infrastructure-as-Code',
           icon: FiTerminal,
           description:
-            'Extend your design system while maintaininig code quality and consistency with built-in generators.',
+            'Maintain consistency and scalability using infrastructure-as-code tools like Terraform or Pulumi.',
           variant: 'inline',
         },
         {
-          title: 'Monorepo.',
+          title: 'Threat Intelligence',
+          icon: FiSearch,
+          description:
+            'Capture attacker behavior to gather actionable threat intelligence and improve your security posture.',
+          variant: 'inline',
+        },
+        {
+          title: 'Built for Teams',
+          icon: FiUserPlus,
+          description:
+            'Designed for effective collaboration between security teams, with user roles and shared access to critical threat data.',
+          variant: 'inline',
+        },
+        {
+          title: 'Developer Friendly',
           icon: FiCode,
           description: (
             <>
-              All code is available as packages in a high-performance{' '}
-              <Link href="https://turborepo.com">Turborepo</Link>, you have full
-              control to modify and adjust it to your workflow.
+              Fully extendable via APIs and automation pipelines. Built in a{' '}
+              <Link href="https://turborepo.org">Turborepo</Link> for high
+              performance and flexibility.
             </>
           ),
           variant: 'inline',
@@ -447,9 +519,7 @@ const TestimonialsSection = () => {
 const PricingSection = () => {
   return (
     <Pricing {...pricing}>
-      <Text p="8" textAlign="center" color="muted">
-        VAT may be applicable depending on your location.
-      </Text>
+      <Text p="8" textAlign="center" color="muted"></Text>
     </Pricing>
   )
 }

@@ -1,15 +1,14 @@
-import { Button } from '@chakra-ui/react'
-import { Link } from '@saas-ui/react'
-import { NextSeoProps } from 'next-seo'
-import { FaGithub, FaTwitter } from 'react-icons/fa'
-import { FiCheck } from 'react-icons/fi'
-import { Logo } from './logo'
-
+import { Button } from '@chakra-ui/react';
+import { Link } from '@saas-ui/react';
+import { NextSeoProps } from 'next-seo';
+import { FaGithub, FaTwitter } from 'react-icons/fa';
+import { FiCheck } from 'react-icons/fi';
+import { Logo } from './logo';
 const siteConfig = {
   logo: Logo,
   seo: {
     title: 'Saas UI',
-    description: 'The React component library for startups',
+    description: '',
   } as NextSeoProps,
   termsUrl: '#',
   privacyUrl: '#',
@@ -28,26 +27,22 @@ const siteConfig = {
         label: 'FAQ',
       },
       {
-        label: 'Login',
-        href: '/login',
-      },
-      {
-        label: 'Sign Up',
-        href: '/signup',
-        variant: 'primary',
+        label: 'Join Us',
+        href: 'https://form.typeform.com/to/Db1rF0uQ',
+        isExternal: true,
       },
     ],
   },
   footer: {
-    copyright: (
-      <>
-        Built by{' '}
-        <Link href="https://twitter.com/Pagebakers">Eelco Wiersma</Link>
-      </>
-    ),
+    // copyright: (
+    //   <>
+    //     Built by{' '}
+    //     <Link href="https://twitter.com/Pagebakers">Eelco Wiersma</Link>
+    //   </>
+    // ),
     links: [
       {
-        href: 'mailto:hello@saas-ui.dev',
+        href: 'https://stackmentalist.com/en',
         label: 'Contact',
       },
       {

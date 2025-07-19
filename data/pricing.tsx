@@ -1,4 +1,4 @@
-import { HStack, Text } from '@chakra-ui/react'
+import { HStack, Text } from '@chakra-ui/react';
 
 export default {
   title: 'Pricing for every stage',
@@ -6,78 +6,52 @@ export default {
     'Pay once and get life-time access to our high quality components.',
   plans: [
     {
-      id: 'oss',
-      title: 'Open Source',
+      id: '1',
+      title: 'Basic',
       description: 'Basic compoents, perfect to get started.',
       price: 'Free',
       features: [
         {
-          title: 'MIT License',
+          title: 'Flexible virtual machine selection',
         },
         {
-          title: 'Authentication (Clerk/Supabase/Magic)',
+          title: 'Regional cloud support',
         },
         {
-          title: 'Form (react-hook-form)',
+          title: 'Custom honeypot configurations',
         },
-        {
-          title: 'Modals manager',
-        },
-        {
-          title: 'Hotkeys',
-        },
-        {
-          title: 'Web3 components',
-        },
-        {
-          title: 'And much more...',
-        },
+        // {
+        //   title: 'Intuitive setup wizard',
+        // },
       ],
       action: {
-        href: '#',
+        href: '#step1',
       },
     },
     {
-      id: 'bootstrap',
-      title: 'Bootstrap',
+      id: 'step2',
+      title: 'Preminum',
       description: 'Complete frontend stack for bootstrappers and small teams.',
       price: 'Free',
       isRecommended: true,
       features: [
         {
-          title: 'One project',
+          title: 'One-click deployment',
         },
         {
-          title: 'One developer',
+          title: 'GCP, AWS, Azure support',
         },
         {
-          title: 'Advanced components',
-        },
-        {
-          title: 'Multiple themes',
-        },
-        {
-          title: 'Next.js and Electron boilerplates',
-        },
-        {
-          title: 'Private discord community',
-        },
-        {
-          title: '1 year of updates',
-        },
-        null,
-        {
-          title: 'Private beta access',
-          iconColor: 'green.500',
+          title: 'Automated provisioning',
         },
       ],
       action: {
-        href: 'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license',
+        href: '#step2',
       },
     },
     {
-      id: 'startup',
-      title: 'Startup',
+      id: 'step3',
+      title: 'Business',
       description: 'Unlimited license for growing teams.',
       price: (
         <HStack>
@@ -89,25 +63,17 @@ export default {
       ),
       features: [
         {
-          title: 'Unlimited projects',
+          title: 'Real-time attack insights',
         },
         {
-          title: 'Unlimited developers',
+          title: 'Attack tracking & log management',
         },
         {
-          title: '1 year of updates',
-        },
-        {
-          title: 'Everything from Bootstrap',
-        },
-        null,
-        {
-          title: 'Private beta access',
-          iconColor: 'green.500',
+          title: 'Visual dashboard for system metrics',
         },
       ],
       action: {
-        href: 'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license',
+        href: '#step3',
       },
     },
   ],
